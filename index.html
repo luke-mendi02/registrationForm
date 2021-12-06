@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Login and Registration Form</title>
+    <link rel="stylesheet" href="registrationForm.css">
+	
+   </head>
+<body>
+  <div class="container">
+	<input type="checkbox" id="flip">
+  <div class="cover">
+  <div class="front">
+    <img src="rex.jpeg" alt="rex">
+  <div class="text">
+    <span class="text-1">Enter your login details  <br> on the left</span>
+    <span class="text-2">to get started</span>
+        </div>
+        </div>
+      <div class="back">
+        <img class="backImg" src="dylan.jpg" alt="dylan">
+        <div class="text">
+          <span class="text-1">Register<br> with us today!</span>
+        </div>
+      </div>
+    </div>
+    <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Login</div>
+          <form action="#">
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" id ="email" placeholder="Enter your email" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" id = "password" placeholder="Enter your password" required>
+              </div>
+              <div class="text"><a href="#">Forgot password?</a></div>
+              <div class="button input-box">
+                <input type="submit" value="Submit">
+              </div>
+              <div class="text sign-up-text">Don't have an account? <label for="flip">Sign-up now</label></div>
+            </div>
+        </form>
+      </div>
+        <div class="signup-form">
+          <div class="title">Sign-Up</div>
+        <form action="#">
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input id="nameID" type="text" placeholder="Enter your name" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input id="emailID" type="text" placeholder="Enter your email" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input id="passwordID" type="text" placeholder="Enter your password" required>
+              </div>
+              <div class="button input-box">
+                <input type ="button" value = "Submit" id = "submitSignUp">
+              </div>
+              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+            </div>
+      </form>
+    </div>
+    </div>
+    </div>
+  </div>
+  <script>
+let registeredAccountArray = [];
+  const addAccount  = (ev) => {
+	ev.preventDefault();
+	let newAccount ={
+		name:document.getElementById('nameID').value,
+		email:document.getElementById('emailID').value,
+		password:document.getElementById('passwordID').value
+	}
+	registeredAccountArray.push(newAccount);
+	document.forms[0].reset();
+
+console.warn('added', {registeredAccountArray});
+  }
+	document.addEventListener('DOMContentLoaded',()=>{
+		document.getElementById('submitSignUp').addEventListener('click', addAccount);
+		
+	});
+	let clear = document.querySelector('button');
+	let inputs = document.querySelectorAll('input');
+	clear.addEventListener('click', () => {
+		inputs.forEach(input => input.value = '');
+	});
+
+	</script>
+</body>
+</html>
+

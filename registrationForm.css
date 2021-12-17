@@ -1,30 +1,22 @@
-/* Google Font Link */
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins" , sans-serif;
-}
 body{
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color:navy;
-  padding: 30px;
+  background-image: linear-gradient(navy, turquoise);
+  padding: 0px;
 }
-.container{
+.main{
   position: relative;
-  max-width: 850px;
+  max-width: 2000px;
   width: 100%;
-  background: #fff;
-  padding: 40px 30px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-  perspective: 2700px;
+  max-height: 2000px;
+  height: 100%;
+  background: white;
+  padding: 150px 30px;
 }
-.container .cover{
+.main .cover{
   position: absolute;
   top: 0;
   left: 50%;
@@ -35,14 +27,13 @@ body{
   transform-origin: left;
   transform-style: preserve-3d;
 }
-.container #flip:checked ~ .cover{
+.main #flip:checked ~ .cover{
   transform: rotateY(-180deg);
 }
- .container .cover .front,
- .container .cover .back{
+ .main .cover .front,
+ .main .cover .back{
   position: absolute;
-  top: 0;
-  left: 0;
+ 
   height: 100%;
   width: 100%;
 }
@@ -50,31 +41,28 @@ body{
   transform: rotateY(180deg);
   backface-visibility: hidden;
 }
-.container .cover::before,
-.container .cover::after{
-  content: '';
+.main .cover::before,
+.main .cover::after{
+  
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color:navy;
+  background-color:black;
   opacity: 0.5;
-  z-index: 12;
 }
-.container .cover::after{
+.main .cover::after{
   opacity: 0.3;
   transform: rotateY(180deg);
   backface-visibility: hidden;
 }
-.container .cover img{
+.main .cover img{
   position: absolute;
   height: 100%;
   width: 100%;
   object-fit: cover;
-  z-index: 10;
 }
-.container .cover .text{
+.main .cover .text{
   position: absolute;
-  z-index: 130;
   height: 100%;
   width: 100%;
   display: flex;
@@ -86,43 +74,39 @@ body{
 .cover .text .text-2{
   font-size: 26px;
   font-weight: 600;
-  color: #fff;
+  color: whitesmoke;
   text-align: center;
 }
 .cover .text .text-2{
   font-size: 15px;
   font-weight: 500;
 }
-.container .forms{
+.main .forms{
   height: 100%;
   width: 100%;
-  background: #fff;
+  background: white;
 }
-.container .form-content{
+.main .form-content{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .form-content .login-form,
-.form-content .signup-form{
-  width: calc(100% / 2 - 25px);
+.form-content .sign-up-form{
+  width: 600px;
 }
 .forms .form-content .title{
-  position: relative;
-  font-size: 24px;
-  font-weight: 500;
+  position: static;
+  font-size: 30px;
   color: #333;
 }
 .forms .form-content .title:before{
-  content: '';
   position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
+  height: 5px;
   width: 25px;
-  background-color:navy;
+  background-color:turquoise;
 }
-.forms .signup-form  .title:before{
+.forms .sign-up-form  .title:before{
   width: 20px;
 }
 .forms .form-content .input-boxes{
@@ -139,80 +123,94 @@ body{
 .form-content .input-box input{
   height: 100%;
   width: 100%;
-  outline: none;
-  border: none;
   padding: 0 30px;
   font-size: 16px;
-  font-weight: 500;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
+  transition: 0.5s;
 }
-.form-content .input-box input:focus,
-.form-content .input-box input:valid{
-  border-color:navy;
+.form-content .input-box,
+.form-content .input-box {
+  border-color:turquoise;
 }
 .form-content .input-box i{
   position: absolute;
-  color: navy;
-  font-size: 17px;
+  color: turquoise;
+  font-size: 20px;
 }
 .forms .form-content .text{
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
-  color: #333;
-}
-.forms .form-content .text a{
-  text-decoration: none;
+  color: gray;
 }
 .forms .form-content .text a:hover{
   text-decoration: underline;
 }
 .forms .form-content .button{
-  color: #fff;
+  color: black;
   margin-top: 40px;
 }
 .forms .form-content .button input{
-  color: #fff;
-  background: navy;
+  color: black;
+  background: turquoise;
   border-radius: 6px;
-  padding: 0;
   cursor: pointer;
-  transition: all 0.4s ease;
+  transition: all 0.4s ;
 }
 .forms .form-content .button input:hover{
-  background: navy;
+  background: turquoise;
 }
 .forms .form-content label{
-  color: navy;
-  cursor: pointer;
+  color: turquoise;
+  cursor: alias;
 }
-.forms .form-content label:hover{
-  text-decoration: underline;
+.indicator {
+  height: 10px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
 }
-.forms .form-content .login-text,
-.forms .form-content .sign-up-text{
-  text-align: center;
-  margin-top: 25px;
+.indicator span{
+  width: 100%;
+  height: 100%;
+  background: gray;
+  border-radius: 5px;
 }
-.container #flip{
+.indicator span.medium{
+  margin: 0 3px;
+}
+ .indicator span:before{
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: red;
+  border-radius: 5px;
+}
+.indicator span.active.weak:before {
+  background-color: red;
+}
+.indicator span.active.medium:before {
+  background-color: orange;
+}
+.indicator span.active.strong:before {
+  background-color: lightgreen;
+}
+.text {
   display: none;
 }
-@media (max-width: 730px) {
-  .container .cover{
-    display: none;
-  }
-  .form-content .login-form,
-  .form-content .signup-form{
-    width: 100%;
-  }
-  .form-content .signup-form{
-    display: none;
-  }
-  .container #flip:checked ~ .forms .signup-form{
-    display: block;
-  }
-  .container #flip:checked ~ .forms .login-form{
-    display: none;
-  }
+.text.weak {
+  color: red;
 }
+.text.medium{
+  color: orange;
+}
+.text.strong {
+  color: lightgreen;
+}
+
+
+
+
 
